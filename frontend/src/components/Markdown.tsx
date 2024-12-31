@@ -28,7 +28,7 @@ const options = {
     },
     p: {
       component: Typography,
-      props: { paragraph: true },
+      props: { paragraph: true, align: "justify" },
     },
     a: { 
       component: (props: any) => (

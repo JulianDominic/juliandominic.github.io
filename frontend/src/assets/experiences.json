@@ -1,0 +1,12 @@
+{
+    "experiences": [
+        {
+            "company": "Republic of Singapore Air Force (RSAF)",
+            "role": "Transport Operator",
+            "startDate": "04 Apr 2022",
+            "endDate": "03 Apr 2024",
+            "description": "Mainly drove trucks. Maintained and improved a mileage database in MS Access by ensuring that exporting the data to Excel was bug-free to ensure a smooth process when claiming licenses and bonuses.",
+            "techStack": "MS Access, Excel, VBA"
+        }
+    ]
+}

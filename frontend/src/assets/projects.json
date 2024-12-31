@@ -1,0 +1,26 @@
+{
+    "projects": [
+        {
+            "name": "LobangCube",
+            "startDate": "Jun 2024",
+            "description": "AI Hackathon Project - Won Overall Champion and Most Impactful Solution. Input your lifestyle information, then it will output 3 metrics and an overall score based on them. The metrics were produced by a Random Forest Regressor Model, and GridSearchCV was used for hyperparameter tuning.",
+            "techStack": "Altair, Git, pandas, NumPy, Scikit-Learn, Streamlit, SQLite",
+            "url": "https://github.com/JulianDominic/LobangCube"
+        },
+        {
+            "name": "MTG Price Aggregator",
+            "startDate": "Dec 2023",
+            "endDate": "Present",
+            "description": "Developed a full-stack web application using BS4 to scrape data, FastAPI as the backend, React and Material UI as the frontend. Sends a request to all the requested stores concurrently, and sends it back to the client to view all the prices.",
+            "techStack": "BS4, Docker, FastAPI, Git, Material UI, React",
+            "url": "https://github.com/JulianDominic/MTGPriceAggregator"
+        },
+        {
+            "name": "Homelab",
+            "startDate": "Jun 2022",
+            "endDate": "Present",
+            "description": "It hosts media, static websites, web applications, and a VPN server. All applications and services are in their own Docker container with a compose file.",
+            "techStack": "Docker, Git, nginx, Ubuntu, WireGuard"
+        }
+    ]
+}

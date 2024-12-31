@@ -15,8 +15,8 @@ export default function Sidebar({ currentPath, largeScreen } : { currentPath:Str
         display: "flex",
         flexDirection: "column",
         gap: "1em",
-        borderRight: largeScreen ? "solid grey 1px" : "",
-        borderBottom: !largeScreen ? "solid grey 1px" : "",
+        borderRight: largeScreen ? "inset grey 1px" : "",
+        borderBottom: !largeScreen ? "inset grey 1px" : "",
         minWidth: "300px",
         padding: 0,
       }}

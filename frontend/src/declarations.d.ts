@@ -23,3 +23,21 @@ declare module '*.md' {
   // Modify below per your usage
   export { attributes, toc, html, ReactComponent, VueComponent, VueComponentWith };
 }
+
+declare interface expJson {
+  readonly company:string;
+  readonly role:string;
+  readonly startDate:string;
+  readonly endDate:string;
+  readonly description:string;
+  readonly techStack:string;
+}
+
+declare interface projJson {
+  readonly name:string;
+  readonly startDate:string;
+  readonly endDate?:string;
+  readonly description:string;
+  readonly techStack:string;
+  readonly url?:string;
+}
