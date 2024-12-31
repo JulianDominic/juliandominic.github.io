@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import mdPlugin, { Mode } from 'vite-plugin-markdown';
+import { plugin as mdPlugin, Mode } from 'vite-plugin-markdown';
+
 
 export default defineConfig({
   plugins: [
     react(),
-    mdPlugin.default({
+    mdPlugin({
       mode: [Mode.MARKDOWN]
     })
   ],
