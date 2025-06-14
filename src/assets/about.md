@@ -13,4 +13,4 @@ I am currently an undergraduate (Y1) pursuing Computer Science at the Singapore 
 
 ## This Website
 
-This website was built with [ReactJS](https://react.dev/) (but TypeScript), [Material UI](https://mui.com/) and [Vite](https://vite.dev/).
+This website was built with [ReactJS](https://react.dev/) (but TypeScript), [Material UI](https://mui.com/) and [Vite](https://vite.dev/) - check out the repository [here](https://github.com/JulianDominic/juliandominic.github.io)!.
