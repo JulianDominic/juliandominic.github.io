@@ -26,7 +26,7 @@ declare interface expJson {
   readonly role:string;
   readonly startDate:string;
   readonly endDate:string;
-  readonly description:string;
+  readonly description:string[];
   readonly techStack:string;
 }
 
