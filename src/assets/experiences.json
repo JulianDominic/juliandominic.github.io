@@ -1,11 +1,27 @@
 {
     "experiences": [
         {
+            "company": "Roman Catholic Archdiocese of Singapore, Digital Chuch Office",
+            "role": "Software Engineer Intern",
+            "startDate": "05 May 2025",
+            "endDate": "15 Aug 2025",
+            "description": [
+                "Architected and implemented Singpass (Login and MyInfo) across Mobile and Web, ensuring a secure and reliable system from the ground up.",
+                "Overcame major security and legacy dependency challenges, modernizing an existing codebase and delivering a seamless login and data verification experience.",
+                "Oversaw the feature end-to-end, now serving 300,000+ users, reducing login errors, and enabling parishes to provide more accurate pastoral services through verified user data.",
+                "Improved the onboarding documentation that reduced the onboarding time from a week to just a few hours."
+            ],
+            "techStack": "Express, Firebase, Flutter, Node, React"
+        },
+        {
             "company": "Republic of Singapore Air Force (RSAF)",
             "role": "Transport Operator",
             "startDate": "04 Apr 2022",
             "endDate": "03 Apr 2024",
-            "description": "Mainly drove trucks. Maintained and improved a mileage database in MS Access by ensuring that exporting the data to Excel was bug-free to ensure a smooth process when claiming licenses and bonuses.",
+            "description": [
+                "Mainly drove trucks.",
+                "Maintained and improved a mileage database in MS Access by ensuring that exporting the data to Excel was bug-free to ensure a smooth process when claiming licenses and bonuses."
+            ],
             "techStack": "MS Access, Excel, VBA"
         }
     ]
