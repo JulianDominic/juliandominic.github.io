@@ -9,7 +9,7 @@ tags:
 
 Hello there, I'm **Julian**!
 
-I am currently an undergraduate (Y1) pursuing Computer Science at the Singapore Management University (SMU), expecting to graduate by May 2028.
+I am currently an undergraduate (Y2) pursuing Computer Science at the Singapore Management University (SMU), expecting to graduate by May 2028.
 
 ## This Website
 
