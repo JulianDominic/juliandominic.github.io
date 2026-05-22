@@ -1,0 +1,83 @@
+# If your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would
+# contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "https://juliandominic.github.io/"
+title: Julian
+copyright: "© Julian Dominic Liaw"
+theme: [PaperMod]
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 3
+
+languages:
+  en:
+    label: "English"
+    weight: 1
+    # taxonomies:
+    #   category: categories
+    #   tag: tags
+    #   series: series
+    menu:
+      main:
+        - name: Work Experience
+          url: work-experience
+          weight: 2
+        - name: Projects
+          url: projects
+          weight: 4
+
+outputs:
+  home:
+    - HTML
+
+params:
+  env: production
+
+  defaultTheme: auto
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+
+  homeInfoParams:
+    Title: "Hello there, I'm Julian!"
+    Content: |
+      Just a few quick things about me:
+      - Undergraduate studying Computer Science at the Singapore Management University (SMU), expecting to graduate by May 2028.
+      - I have a growing passion for low-level, systems programming, and site reliability engineering.
+      - I have a humble homelab where I get a chance to be a sysadmin.
+      - I enjoy repairing Nintendo consoles (GBA-SP & DS-Lite).
+        
+  socialIcons:
+    - name: github
+      url: "https://github.com/JulianDominic"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/julian-dominic-liaw/"
+    - name: email
+      url: "mailto:juliandominicliaw@outlook.com"
+
+  assets:
+    disableHLJS: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
