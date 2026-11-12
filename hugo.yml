@@ -3,6 +3,7 @@ title: Julian
 copyright: "© Julian Dominic Liaw"
 enableRobotsTXT: true
 enableEmoji: true
+enableGitInfo: true # dates come from git commits (powers "last updated")
 
 # Only blog posts get tags; no separate tag/category pages are generated.
 disableKinds: [taxonomy, term, RSS]

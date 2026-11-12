@@ -37,7 +37,10 @@
     <main>
       {{ block "main" . }}{{ end }}
     </main>
-    <footer class="footer">{{ site.Copyright }}</footer>
+    <footer class="footer">
+      {{ site.Copyright }}
+      {{- with site.Lastmod }}{{ if not .IsZero }} · last updated <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 Jan 2006" }}</time>{{ end }}{{ end }}
+    </footer>
   </div>
 </body>
 </html>
