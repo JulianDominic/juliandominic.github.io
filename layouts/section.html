@@ -1,0 +1,67 @@
+{{ define "main" }}
+{{- $posts := .RegularPages.ByDate.Reverse }}
+<div class="list-page">
+  <h1 class="page-heading">{{ .Title | lower }}</h1>
+  {{ .Content }}
+
+  {{- $tags := slice }}
+  {{- range $posts }}{{ $tags = $tags | append .Params.tags }}{{ end }}
+  {{- $tags = $tags | uniq | sort }}
+  {{- if $tags }}
+  <div class="tag-filter" role="toolbar" aria-label="Filter posts by tag">
+    <button type="button" class="active" data-tag="">all</button>
+    {{- range $tags }}
+    <button type="button" data-tag="{{ . | urlize }}">{{ . }}</button>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  <div class="post-list">
+    {{- range $posts }}
+    <article class="post-card{{ if .Params.cover }} has-cover{{ end }}" data-tags="{{ delimit (apply (.Params.tags | default slice) "urlize" ".") " " }}">
+      {{- with .Params.cover }}
+      <a class="post-cover" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ . | relURL }}" alt="" loading="lazy"></a>
+      {{- end }}
+      <div class="post-info">
+        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="post-date">{{ .Date | time.Format "2 Jan 2006" }}</p>
+        {{- $firstPara := index (findRE `(?s)<p>.*?</p>` .Content 1) 0 }}
+        <p class="post-excerpt">{{ or .Description $firstPara .Summary | plainify | truncate 220 }}</p>
+        {{- with .Params.tags }}
+        <p class="post-tags">{{ range . }}<span class="post-tag">{{ . }}</span>{{ end }}</p>
+        {{- end }}
+      </div>
+    </article>
+    {{- else }}
+    <p class="empty">no posts yet.</p>
+    {{- end }}
+    <p class="empty" id="no-match" hidden>no posts under this tag yet.</p>
+  </div>
+</div>
+
+{{- if $tags }}
+<script>
+  (() => {
+    const buttons = document.querySelectorAll(".tag-filter button");
+    const cards = document.querySelectorAll(".post-card");
+    const noMatch = document.getElementById("no-match");
+    const apply = (tag) => {
+      let shown = 0;
+      buttons.forEach((b) => b.classList.toggle("active", b.dataset.tag === tag));
+      cards.forEach((c) => {
+        const show = !tag || c.dataset.tags.split(" ").includes(tag);
+        c.hidden = !show;
+        if (show) shown++;
+      });
+      noMatch.hidden = shown > 0;
+      const url = new URL(location);
+      tag ? url.searchParams.set("tag", tag) : url.searchParams.delete("tag");
+      history.replaceState(null, "", url);
+    };
+    buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.tag)));
+    const initial = new URLSearchParams(location.search).get("tag");
+    if (initial) apply(initial);
+  })();
+</script>
+{{- end }}
+{{ end }}

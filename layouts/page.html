@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article class="post">
+  {{- with .Parent }}{{ if not .IsHome }}
+  <p class="back"><a href="{{ .RelPermalink }}">← back to {{ .Title | lower }}</a></p>
+  {{- end }}{{ end }}
+  <header class="post-header">
+    <h1 class="post-heading">{{ .Title }}</h1>
+    {{- if not .Date.IsZero }}
+    <p class="post-meta">
+      {{ .Date | time.Format "2 Jan 2006" }} · {{ .ReadingTime }} min read
+      {{- with .Lastmod }}{{ if gt (sub .Unix $.Date.Unix) 86400 }} · updated {{ . | time.Format "2 Jan 2006" }}{{ end }}{{ end }}
+    </p>
+    {{- end }}
+    {{- with .Params.tags }}
+    <p class="post-tags">{{ range . }}<a class="post-tag" href="{{ $.Parent.RelPermalink }}?tag={{ . | urlize }}">{{ . }}</a>{{ end }}</p>
+    {{- end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

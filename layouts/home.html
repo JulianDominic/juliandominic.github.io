@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{- /* Everything before the first "## heading" in content/_index.md is the bio;
+       every "## heading" after that becomes its own section below it. */}}
+{{- $parts := split .Content "<h2" }}
+{{- $bio := index $parts 0 }}
+<div class="home">
+  <section class="bio{{ if .Params.photo }} has-photo{{ end }}">
+    <div class="bio-text">
+      <h1 class="bio-name">{{ .Title }}<span class="cursor" aria-hidden="true">_</span></h1>
+      {{ $bio | safeHTML }}
+    </div>
+    {{- with .Params.photo }}
+    <div class="bio-photo"><img src="{{ . | relURL }}" alt="Photo of {{ site.Title }}"></div>
+    {{- end }}
+  </section>
+
+  {{- with site.Params.links }}
+  <p class="contact-row">
+    {{- range $i, $l := . }}
+    {{- if $i }}<span class="sep">·</span>{{ end }}
+    <a href="{{ $l.url }}"{{ if hasPrefix $l.url "http" }} target="_blank" rel="noopener"{{ end }}>{{ $l.name }}</a>
+    {{- end }}
+  </p>
+  {{- end }}
+
+  {{- if gt (len $parts) 1 }}
+  <div class="sections prose-mono">
+    {{ printf "<h2%s" (delimit (after 1 $parts) "<h2") | safeHTML }}
+  </div>
+  {{- end }}
+</div>
+{{ end }}

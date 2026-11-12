@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+  {{- $desc := or .Description .Summary site.Params.description | plainify | strings.TrimSpace | truncate 160 }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
+  <meta name="author" content="{{ site.Title }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with or .Params.cover .Params.photo }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{- end }}
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Roboto+Slab:wght@400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+</head>
+<body>
+  <div class="shell">
+    <header class="top-bar">
+      <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+      <nav class="nav">
+        {{- range site.Menus.main }}
+        <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} class="active"{{ end }}>{{ .Name }}</a>
+        {{- end }}
+      </nav>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="footer">{{ site.Copyright }}</footer>
+  </div>
+</body>
+</html>
